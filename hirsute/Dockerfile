@@ -1,6 +1,6 @@
 ARG nominatim_version=3.6.0
 
-FROM ubuntu:hirsuite as builder
+FROM ubuntu:hirsute as builder
 
 ARG nominatim_version
 
