@@ -1,4 +1,4 @@
-ARG nominatim_version=3.5.2
+ARG nominatim_version=3.6.0
 
 FROM ubuntu:bionic as builder
 
