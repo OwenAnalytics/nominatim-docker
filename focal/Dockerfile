@@ -1,4 +1,4 @@
-ARG nominatim_version=3.5.2
+ARG nominatim_version=3.6.0
 
 FROM ubuntu:focal as builder
 
@@ -14,7 +14,7 @@ RUN apt-get -y update \
     cmake \
     g++ \
     libboost-dev \
-    libboost-filesystem1.71-dev \
+    libboost-filesystem1.74-dev \
     libexpat1-dev \
     zlib1g-dev \
     libxml2-dev \
@@ -23,7 +23,7 @@ RUN apt-get -y update \
     libgeos-dev \
     libgeos++-dev \
     libproj-dev \
-    postgresql-server-dev-12 \
+    postgresql-server-dev-13 \
     php \
     curl
 
@@ -45,12 +45,9 @@ FROM ubuntu:focal
 ARG nominatim_version
 
 LABEL \
-  maintainer="Peter Evans <mail@peterevans.dev>" \
   org.opencontainers.image.title="nominatim" \
   org.opencontainers.image.description="Docker image for Nominatim." \
-  org.opencontainers.image.authors="Peter Evans <mail@peterevans.dev>" \
-  org.opencontainers.image.url="https://github.com/peter-evans/nominatim-docker" \
-  org.opencontainers.image.vendor="https://peterevans.dev" \
+  org.opencontainers.image.url="https://github.com/owenanalytics/nominatim-docker" \
   org.opencontainers.image.licenses="MIT" \
   app.tag="nominatim${nominatim_version}"
 
@@ -64,10 +61,10 @@ RUN apt-get -y update \
  && locale-gen en_US.UTF-8 \
  && update-locale LANG=en_US.UTF-8 \
  && apt-get install -y -qq --no-install-recommends \
-    postgresql-server-dev-12 \
+    postgresql-server-dev-13 \
     postgresql-12-postgis-3 \
     postgresql-12-postgis-3-scripts \
-    postgresql-contrib-12 \
+    postgresql-contrib-13 \
     apache2 \
     php \
     php-pgsql \
@@ -79,8 +76,8 @@ RUN apt-get -y update \
     python3-psycopg2 \
     curl \
     ca-certificates \
-    libboost-system1.71\
-    libboost-filesystem1.71 \
+    libboost-system1.74\
+    libboost-filesystem1.74 \
     sudo \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
