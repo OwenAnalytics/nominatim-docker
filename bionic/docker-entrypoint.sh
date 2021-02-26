@@ -3,13 +3,14 @@
 # Defaults
 NOMINATIM_DATA_PATH=${NOMINATIM_DATA_PATH:="/srv/nominatim/data"}
 NOMINATIM_DATA_LABEL=${NOMINATIM_DATA_LABEL:="data"}
-NOMINATIM_PBF_URL=${NOMINATIM_PBF_URL:="http://download.geofabrik.de/asia/maldives-latest.osm.pbf"}
+NOMINATIM_PBF_URL=${NOMINATIM_PBF:="nocal-latest.osm.pbf"}
 
 
 # Retrieve the PBF file
-curl -L $NOMINATIM_PBF_URL --create-dirs -o $NOMINATIM_DATA_PATH/$NOMINATIM_DATA_LABEL.osm.pbf
+#curl -L $NOMINATIM_PBF_URL --create-dirs -o $NOMINATIM_DATA_PATH/$NOMINATIM_DATA_LABEL.osm.pbf
+#mkdir $NOMINATIM_DATA_PATH
 # Allow user accounts read access to the data
-chmod 755 $NOMINATIM_DATA_PATH
+#chmod 755 $NOMINATIM_DATA_PATH
 
 # Start PostgreSQL
 service postgresql start
