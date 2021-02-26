@@ -23,7 +23,7 @@ RUN apt-get -y update \
     libgeos-dev \
     libgeos++-dev \
     libproj-dev \
-    postgresql-server-dev-13 \
+    postgresql-server-dev-12 \
     php \
     curl
 
@@ -61,10 +61,10 @@ RUN apt-get -y update \
  && locale-gen en_US.UTF-8 \
  && update-locale LANG=en_US.UTF-8 \
  && apt-get install -y -qq --no-install-recommends \
-    postgresql-server-dev-13 \
+    postgresql-server-dev-12 \
     postgresql-12-postgis-3 \
     postgresql-12-postgis-3-scripts \
-    postgresql-contrib-13 \
+    postgresql-contrib-12 \
     apache2 \
     php \
     php-pgsql \
